@@ -1,0 +1,17 @@
+.home-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+h1{
+    pointer-events: none;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
