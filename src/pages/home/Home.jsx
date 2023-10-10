@@ -9,7 +9,7 @@ const Home = ()=>{
         <div className='home-container'>
             <h1>Hello people</h1>
             <div className='button-container'>
-                <Button name = "Login" clickEvent={()=>navigate("/signup")}/>
+                <Button name = "Login" clickEvent={()=>navigate("/login")}/>
                 <Button name = "Signup" clickEvent={()=>navigate("/signup")}/>
             </div>
         </div>
