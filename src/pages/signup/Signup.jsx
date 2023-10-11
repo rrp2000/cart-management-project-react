@@ -4,7 +4,7 @@ import Textbox from "../../component/inputBox/Textbox";
 import Button from "../../component/button/Button";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
     let navigate = useNavigate();
@@ -22,7 +22,7 @@ const Signup = () => {
         axios.post("user/signup",signupDetails).then(res => {
             console.log(res);
             alert("Sign up successful");
-            navigate("/login")
+            navigate("/")
         }).catch(err =>{
             alert(err?.response?.data?.message)
         })
@@ -31,12 +31,12 @@ const Signup = () => {
     return(
         <div className="signup-container">
             <h1>SIGN-UP</h1>
-            <Textbox label="First Name" name="firstName" value={signupDetails.firstName} signupDetails = {signupDetails} setSignupDetails = {setSignupDetails}></Textbox>
-            <Textbox label="Last Name" name="lastName" value={signupDetails.lastName} signupDetails = {signupDetails} setSignupDetails = {setSignupDetails}></Textbox>
-            <Textbox label="email" name="email" value={signupDetails.email} signupDetails = {signupDetails} setSignupDetails = {setSignupDetails}></Textbox>
-            <Textbox label="phone" name="phone" value={signupDetails.phone} signupDetails = {signupDetails} setSignupDetails = {setSignupDetails}></Textbox>
-            <Textbox label="password" name="password" value={signupDetails.password} signupDetails = {signupDetails} setSignupDetails = {setSignupDetails}></Textbox>
-
+            <Textbox label="First Name" name="firstName" value={signupDetails.firstName} details = {signupDetails} setDetails = {setSignupDetails}></Textbox>
+            <Textbox label="Last Name" name="lastName" value={signupDetails.lastName} details = {signupDetails} setDetails = {setSignupDetails}></Textbox>
+            <Textbox label="email" name="email" value={signupDetails.email} details = {signupDetails} setDetails = {setSignupDetails}></Textbox>
+            <Textbox label="phone" name="phone" value={signupDetails.phone} details = {signupDetails} setDetails = {setSignupDetails}></Textbox>
+            <Textbox label="password" name="password" value={signupDetails.password} details = {signupDetails} setDetails = {setSignupDetails}></Textbox>
+            <Link to= "/">already Resigtered?</Link>
             <Button name = "save yourself" clickEvent={handleSignup} />
         </div>
     )

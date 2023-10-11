@@ -8,3 +8,12 @@
 
     gap: 2rem;
 }
+
+
+.signup-container a{
+    text-decoration: none;
+    transition: 0.5s;
+}
+.signup-container a:hover{
+    color:rgb(82, 209, 255);
+}

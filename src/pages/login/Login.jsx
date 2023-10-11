@@ -1,7 +1,7 @@
 import React from "react";
 import Textbox from "../../component/inputBox/Textbox";
 import Button from "../../component/button/Button";
-import { useNavigate} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import "./login.css"
@@ -17,8 +17,9 @@ let Login = (props) =>{
     let handleSignup = () => {
         console.log(loginDetails)
         axios.post("user/login",loginDetails).then(res => {
-            console.log(res);
-            // navigate("/dashboard")
+            console.log(res?.data?.message);
+            localStorage.setItem("jwt",res?.data?.payload?.jwt)
+            navigate("/dashboard")
         }).catch(err =>{
             alert(err?.response?.data?.message)
         })
@@ -28,7 +29,7 @@ let Login = (props) =>{
              <h1>LOG-IN</h1>
             <Textbox label="email" name="email" value={loginDetails.email} details = {loginDetails} setDetails = {setLoginDetails}></Textbox>
             <Textbox label="password" name="password" value={loginDetails.password} details = {loginDetails} setDetails = {setLoginDetails}></Textbox>
-
+            <Link to= "/signup">Not Resigtered?</Link>
             <Button name = "Login" clickEvent={handleSignup} />
         </div>
     )

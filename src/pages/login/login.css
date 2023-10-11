@@ -8,3 +8,11 @@
 
     gap: 2rem;
 }
+
+.login-container a{
+    text-decoration: none;
+    transition: 0.5s;
+}
+.login-container a:hover{
+    color:rgb(82, 209, 255);
+}
